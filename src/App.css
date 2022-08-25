@@ -2,3 +2,6 @@
   text-align: center;
 }
 
+.mainbox:hover{
+  cursor: pointer;
+}
