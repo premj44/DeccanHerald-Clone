@@ -1,8 +1,30 @@
-import { Box, Container, MenuButton, Menu, HStack, Image, Stack, Text, IconButton, Button, MenuList, MenuItem } from '@chakra-ui/react'
-import { ChevronDownIcon, HamburgerIcon, Search2Icon } from "@chakra-ui/icons"
+import { Box, Container, MenuButton, Menu, HStack, Image, Stack, Text, IconButton, Button, MenuList, MenuItem, PopoverTrigger, Popover, PopoverContent, PopoverBody, Input, useDisclosure, CloseButton } from '@chakra-ui/react'
+import { AddIcon, ChevronDownIcon, HamburgerIcon, MinusIcon, Search2Icon } from "@chakra-ui/icons"
 import { Link } from 'react-router-dom'
 
+import {
+    Accordion,
+    AccordionItem,
+    AccordionButton,
+    AccordionPanel,
+    AccordionIcon,
+} from '@chakra-ui/react'
+
+import {
+    Drawer,
+    DrawerBody,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerOverlay,
+    DrawerContent,
+    DrawerCloseButton,
+} from '@chakra-ui/react'
+
+import React from 'react';
+
 export default function Navbar() {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const btnRef = React.useRef()
 
     return (
         <Box>
@@ -51,23 +73,25 @@ export default function Navbar() {
                         <Image boxSize='12px' src='https://www.deccanherald.com/sites/deccanherald.com/themes/deccanherald/images/icons/up-arrow.svg'
                             alt='up-icon' />
                     </Box>
-                    <Box mt={"-100px"} >
+                    <Box mt={"-100px"} ><a href='https://www.facebook.com/deccanherald'>
                         <Image ml={"20px"} boxSize='16px' src='https://www.deccanherald.com/sites/deccanherald.com/themes/deccanherald/images/icons/fb-nav.svg'
-                            alt='facebook-icon' />
+                            alt='facebook-icon' /></a>
                     </Box>
                     <Box mt={"-100px"}>
-                        <Image boxSize='16px' src='https://www.deccanherald.com/sites/deccanherald.com/themes/deccanherald/images/icons/twitter-nav.svg'
-                            alt='twitter-icon' />
+                        <a href='https://twitter.com/deccanherald'><Image boxSize='16px' src='https://www.deccanherald.com/sites/deccanherald.com/themes/deccanherald/images/icons/twitter-nav.svg'
+                            alt='twitter-icon' /></a>
                     </Box>
                     <Box mt={"-100px"}>
-                        <Image boxSize='16px' src='https://www.deccanherald.com/sites/deccanherald.com/themes/deccanherald/images/icons/ig-nav.svg'
-                            alt='insta-icon' />
+                        <a href='https://www.instagram.com/deccanherald/'><Image boxSize='16px' src='https://www.deccanherald.com/sites/deccanherald.com/themes/deccanherald/images/icons/ig-nav.svg'
+                            alt='insta-icon' /></a>
                     </Box>
                 </HStack>
             </Box>
-
+            {/* *************************************************** */}
             <HStack fontSize='sm' height='32px' color="white" bg='#0087a8' spacing='15px'>
-                <Box ml={"75px"} width='30px' color="white">
+
+                <Box ml={"75px"} width='30px' color="white" ref={btnRef}
+                    onClick={onOpen}>
                     <Menu>
                         <MenuButton height='29px'
                             as={IconButton}
@@ -76,15 +100,234 @@ export default function Navbar() {
                         />
                     </Menu>
                 </Box>
+                <Drawer bg='#0087a8'
+                    isOpen={isOpen}
+                    placement='left'
+                    onClose={onClose}
+                    finalFocusRef={btnRef}
+                >
+
+
+                    <DrawerOverlay />
+                    <DrawerContent bg='#0087a8' >
+                        <Box >
+                            <DrawerCloseButton color='white' fontSize='20px' mt='25px' mr='250px' />
+                            <Box mt='75px' >
+                                <DrawerBody>
+                                    <Accordion allowMultiple bg='#0087a8' color='white' ml='-18px' width='290px'>
+
+                                        <AccordionItem >
+                                            <Link to='/'> <Box flex='1' p='15px' ml='10px' fontSize='17px' textAlign='left'>
+                                                HOME
+                                            </Box></Link>
+                                        </AccordionItem>
+
+                                        <AccordionItem >
+                                            {({ isExpanded }) => (
+                                                <>
+                                                    <h2>
+                                                        <AccordionButton>
+                                                            <Box flex='1' p='10px' fontSize='17px' textAlign='left'>
+                                                                BENGALURU
+                                                            </Box>
+                                                            {isExpanded ? (
+                                                                <MinusIcon fontSize='17px' />
+                                                            ) : (
+                                                                <AddIcon fontSize='17px' />
+                                                            )}
+                                                        </AccordionButton>
+                                                    </h2>
+                                                    <AccordionPanel pb={4} bg='#027b92'>
+                                                        <Text>Top Stories</Text>
+                                                        <Text>Crime</Text>
+                                                        <Text>Politics</Text>
+                                                        <Text>Infrastructure</Text>
+                                                        <Text>Life in the City</Text>
+                                                        <Text>Bengaluru 2040</Text>
+                                                    </AccordionPanel>
+                                                </>
+                                            )}
+                                        </AccordionItem>
+
+                                        <AccordionItem >
+                                            {({ isExpanded }) => (
+                                                <>
+                                                    <h2>
+                                                        <AccordionButton>
+                                                            <Box flex='1' p='10px' fontSize='17px' textAlign='left'>
+                                                                KARNATAKA
+                                                            </Box>
+                                                            {isExpanded ? (
+                                                                <MinusIcon fontSize='17px' />
+                                                            ) : (
+                                                                <AddIcon fontSize='17px' />
+                                                            )}
+                                                        </AccordionButton>
+                                                    </h2>
+                                                    <AccordionPanel pb={4} bg='#027b92'>
+                                                        <Text>Top Stories</Text>
+                                                        <Text>Politics</Text>
+                                                        <Text>Districts</Text>
+                                                        <Text>22in22</Text>
+                                                    </AccordionPanel>
+                                                </>
+                                            )}
+                                        </AccordionItem>
+
+                                        <AccordionItem >
+                                            {({ isExpanded }) => (
+                                                <>
+                                                    <h2>
+                                                        <AccordionButton>
+                                                            <Box flex='1' p='10px' fontSize='17px' textAlign='left'>
+                                                                NATIONAL
+                                                            </Box>
+                                                            {isExpanded ? (
+                                                                <MinusIcon fontSize='17px' />
+                                                            ) : (
+                                                                <AddIcon fontSize='17px' />
+                                                            )}
+                                                        </AccordionButton>
+                                                    </h2>
+                                                    <AccordionPanel pb={4} bg='#027b92'>
+                                                        <Text>Politics</Text>
+                                                        <Text>Coronavirus</Text>
+                                                        <Text>North and Central</Text>
+                                                        <Text>South</Text>
+                                                        <Text>West</Text>
+                                                        <Text>India@75</Text>
+                                                    </AccordionPanel>
+                                                </>
+                                            )}
+                                        </AccordionItem>
+
+                                        <AccordionItem >
+                                            {({ isExpanded }) => (
+                                                <>
+                                                    <h2>
+                                                        <AccordionButton>
+                                                            <Box flex='1' p='10px' fontSize='17px' textAlign='left'>
+                                                                SPORTS
+                                                            </Box>
+                                                            {isExpanded ? (
+                                                                <MinusIcon fontSize='17px' />
+                                                            ) : (
+                                                                <AddIcon fontSize='17px' />
+                                                            )}
+                                                        </AccordionButton>
+                                                    </h2>
+                                                    <AccordionPanel pb={4} bg='#027b92'>
+                                                        <Text>Cricket</Text>
+                                                        <Text>Formula 1</Text>
+                                                        <Text>Football</Text>
+                                                        <Text>Tennis</Text>
+                                                        <Text>Sportscene</Text>
+                                                        <Text>Other Sports</Text>
+                                                    </AccordionPanel>
+                                                </>
+                                            )}
+                                        </AccordionItem>
+
+                                        <AccordionItem >
+                                            {({ isExpanded }) => (
+                                                <>
+                                                    <h2>
+                                                        <AccordionButton>
+                                                            <Box flex='1' p='10px' fontSize='17px' textAlign='left'>
+                                                                BUSINESS
+                                                            </Box>
+                                                            {isExpanded ? (
+                                                                <MinusIcon fontSize='17px' />
+                                                            ) : (
+                                                                <AddIcon fontSize='17px' />
+                                                            )}
+                                                        </AccordionButton>
+                                                    </h2>
+                                                    <AccordionPanel pb={4} bg='#027b92'>
+                                                        <Text>Business News</Text>
+                                                        <Text>Family Finance</Text>
+                                                        <Text>Technology</Text>
+                                                        <Text>DH Wheels</Text>
+                                                        <Text>Budget 2022</Text>
+                                                    </AccordionPanel>
+                                                </>
+                                            )}
+                                        </AccordionItem>
+
+                                        <AccordionItem >
+                                            <Box flex='1' p='15px' ml='10px' fontSize='17px' textAlign='left'>
+                                                WORLD
+                                            </Box>
+                                        </AccordionItem>
+
+                                        <AccordionItem >
+                                            {({ isExpanded }) => (
+                                                <>
+                                                    <h2>
+                                                        <AccordionButton>
+                                                            <Box flex='1' p='10px' fontSize='17px' textAlign='left'>
+                                                                OPINION
+                                                            </Box>
+                                                            {isExpanded ? (
+                                                                <MinusIcon fontSize='17px' />
+                                                            ) : (
+                                                                <AddIcon fontSize='17px' />
+                                                            )}
+                                                        </AccordionButton>
+                                                    </h2>
+                                                    <AccordionPanel pb={4} bg='#027b92'>
+                                                        <Text>DH Views</Text>
+                                                        <Text>Editorials</Text>
+                                                        <Text>Panorama</Text>
+                                                        <Text>Comment</Text>
+                                                    </AccordionPanel>
+                                                </>
+                                            )}
+                                        </AccordionItem>
+
+                                        <AccordionItem >
+                                            {({ isExpanded }) => (
+                                                <>
+                                                    <h2>
+                                                        <AccordionButton>
+                                                            <Box flex='1' p='10px' fontSize='17px' textAlign='left'>
+                                                                METROLIFE
+                                                            </Box>
+                                                            {isExpanded ? (
+                                                                <MinusIcon fontSize='17px' />
+                                                            ) : (
+                                                                <AddIcon fontSize='17px' />
+                                                            )}
+                                                        </AccordionButton>
+                                                    </h2>
+                                                    <AccordionPanel pb={4} bg='#027b92'>
+                                                        <Text>Your Bond With Bengaluru</Text>
+                                                        <Text>Cityscape</Text>
+                                                        <Text>On The Move</Text>
+                                                        <Text>Lifestyle</Text>
+                                                    </AccordionPanel>
+                                                </>
+                                            )}
+                                        </AccordionItem>
+                                    </Accordion>
+                                </DrawerBody>
+                            </Box>
+                        </Box>
+                    </DrawerContent>
+                </Drawer>
+
+
+                {/* ************************************ */}
+
                 <Box bg='#0087a8'>
                     <Menu >
                         <Link to="/" ><MenuButton as={Text} rightIcon={<ChevronDownIcon />}>Home</MenuButton></Link>
                     </Menu>
                 </Box>
                 <Box >
-                <Menu >
-                       <MenuButton as={Text} rightIcon={<ChevronDownIcon />}>Bengaluru</MenuButton>
-                        
+                    <Menu >
+                        <MenuButton as={Text} rightIcon={<ChevronDownIcon />}>Bengaluru</MenuButton>
+
                         <MenuList bg='#0087a8'>
                             <MenuItem>Top Stories</MenuItem>
                             <MenuItem>Crime</MenuItem>
@@ -98,7 +341,7 @@ export default function Navbar() {
                 <Box>
                     <Menu >
                         <MenuButton as={Text} rightIcon={<ChevronDownIcon />}>Karnataka</MenuButton>
-                        
+
                         <MenuList bg='#0087a8'>
                             <MenuItem>Top Stories</MenuItem>
                             <MenuItem>Politics</MenuItem>
@@ -110,9 +353,9 @@ export default function Navbar() {
                 <Box>
                     <Menu >
                         <MenuButton as={Text} rightIcon={<ChevronDownIcon />}>National</MenuButton>
-                        
+
                         <MenuList bg='#0087a8'>
-                        <Link to="/national" > <MenuItem>Politics</MenuItem></Link>
+                            <Link to="/national" > <MenuItem>Politics</MenuItem></Link>
                             <MenuItem>Coronavirus</MenuItem>
                             <MenuItem>North and Central</MenuItem>
                             <MenuItem>East and Northeast</MenuItem>
@@ -124,9 +367,9 @@ export default function Navbar() {
                 <Box>
                     <Menu >
                         <MenuButton as={Text} rightIcon={<ChevronDownIcon />}>Sports</MenuButton>
-                        
+
                         <MenuList bg='#0087a8'>
-                        <Link to="/" ><MenuItem>Cricket</MenuItem></Link>
+                            <Link to="/" ><MenuItem>Cricket</MenuItem></Link>
                             <MenuItem>Football</MenuItem>
                             <MenuItem>Tennis</MenuItem>
                             <MenuItem>Delete</MenuItem>
@@ -139,9 +382,9 @@ export default function Navbar() {
                 <Box>
                     <Menu >
                         <MenuButton as={Text} rightIcon={<ChevronDownIcon />}>Business</MenuButton>
-                        
+
                         <MenuList bg='#0087a8'>
-                        <Link to="/" ><MenuItem>Business News</MenuItem></Link>
+                            <Link to="/" ><MenuItem>Business News</MenuItem></Link>
                             <MenuItem>Family Finance</MenuItem>
                             <MenuItem>Technology</MenuItem>
                             <MenuItem>DH Wheels</MenuItem>
@@ -152,25 +395,25 @@ export default function Navbar() {
                 <Box>
                     <Menu >
                         <MenuButton as={Text} rightIcon={<ChevronDownIcon />}>Opinion</MenuButton>
-                        
+
                         <MenuList bg='#0087a8'>
-                        <Link to="/" ><MenuItem>DH Views</MenuItem></Link>
+                            <Link to="/" ><MenuItem>DH Views</MenuItem></Link>
                             <MenuItem>Editorials</MenuItem>
                             <MenuItem>Panorama</MenuItem>
                             <MenuItem>Delete</MenuItem>
                             <MenuItem>Comment</MenuItem>
-                            <MenuItem>In Perspective</MenuItem> 
-                            <MenuItem>Right in the Middle </MenuItem> 
-                              
+                            <MenuItem>In Perspective</MenuItem>
+                            <MenuItem>Right in the Middle </MenuItem>
+
                         </MenuList>
                     </Menu>
                 </Box>
                 <Box>
                     <Menu >
                         <MenuButton as={Text} rightIcon={<ChevronDownIcon />}>Features</MenuButton>
-                        
+
                         <MenuList bg='#0087a8'>
-                        <Link to="/" ><MenuItem>Metrolife</MenuItem></Link>
+                            <Link to="/" ><MenuItem>Metrolife</MenuItem></Link>
                             <MenuItem>Entertainment</MenuItem>
                             <MenuItem>Travel</MenuItem>
                             <MenuItem>Spectrum</MenuItem>
@@ -183,10 +426,10 @@ export default function Navbar() {
                 </Box>
                 <Box>
                     <Menu >
-                       <MenuButton as={Text} rightIcon={<ChevronDownIcon />}>Videos</MenuButton>
-                        
+                        <MenuButton as={Text} rightIcon={<ChevronDownIcon />}>Videos</MenuButton>
+
                         <MenuList bg='#0087a8'>
-                        <Link to="/" ><MenuItem>Latest Videos</MenuItem></Link>
+                            <Link to="/" ><MenuItem>Latest Videos</MenuItem></Link>
                             <MenuItem>Bengaluru</MenuItem>
                             <MenuItem>Karnataka</MenuItem>
                             <MenuItem>People</MenuItem>
@@ -202,7 +445,7 @@ export default function Navbar() {
                 <Box>
                     <Menu >
                         <MenuButton as={Text} rightIcon={<ChevronDownIcon />}>Specials</MenuButton>
-                        
+
                         <MenuList bg='#0087a8'>
                             <MenuItem>Insight</MenuItem>
                             <MenuItem>Point Blank</MenuItem>
@@ -215,7 +458,27 @@ export default function Navbar() {
                     <Text fontSize='12px' ml='10px' fontWeight='bold' color="black">NewsLetters</Text>
                 </Box>
                 <Box >
-                    <Search2Icon ml={"270px"} />
+                    <Popover placement='bottom-start'>
+                        <PopoverTrigger>
+                            <Box ml='250px'
+                                tabIndex='0'
+                                role='button'
+                                aria-label='Some box'
+                                p={1}
+                                w='25px'
+                                bg='#0087a8'
+
+                                color='white'
+                                children= <Search2Icon /> 
+                            />
+                        </PopoverTrigger>
+                        <PopoverContent bg='#f6f6f6' color='white' w='550px' h='50px' >
+                            <PopoverBody display='flex' border='2px solid #0087a8' h='50px'>
+                                <Input color='black' h='35px' placeholder='What are you looking for?' border='none' />
+                                <Button bg='#f6f6f6' h='35px' color='#0087a8' border='none'>Search</Button>
+                            </PopoverBody>
+                        </PopoverContent>
+                    </Popover>
                 </Box>
             </HStack>
 
