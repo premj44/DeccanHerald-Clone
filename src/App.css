@@ -5,3 +5,8 @@
 .mainbox:hover{
   cursor: pointer;
 }
+
+:hover.listitem{
+  text-decoration: underline;
+  cursor: pointer;
+}

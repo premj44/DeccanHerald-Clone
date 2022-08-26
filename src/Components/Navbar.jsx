@@ -453,7 +453,7 @@ export default function Navbar() {
                         </MenuList>
                     </Menu>
                 </Box>
-                <Box fontWeight='10px' textAlign='left' w='110px' lineHeight='15px' height='33px' bg='#f8c242'>
+                <Box cursor={"pointer"} fontWeight='10px' textAlign='left' w='110px' lineHeight='15px' height='33px' bg='#f8c242'>
                     <Text fontSize='12px' ml='10px' fontWeight='bold' color="red">New</Text>
                     <Text fontSize='12px' ml='10px' fontWeight='bold' color="black">NewsLetters</Text>
                 </Box>
@@ -483,7 +483,7 @@ export default function Navbar() {
             </HStack>
 
 
-            <HStack borderBottom='1px solid #0087a8' bg='#f6f6f6' h='35px' fontSize='14px' spacing='10px'>
+            <HStack cursor={"pointer"} borderBottom='1px solid #0087a8' bg='#f6f6f6' h='35px' fontSize='14px' spacing='10px'>
                 <Box color='#0087a8' fontWeight='bold' ml='45px' w='70px' h='-8px'>
                     <Text>IN BRIEF:</Text>
                 </Box>
