@@ -175,8 +175,8 @@ export default function Footer() {
                         <Divider orientation='horizontal' />
 
                         <Flex gap='15px' m='10px'>
-                            <Image src='https://www.deccanherald.com/sites/deccanherald.com/modules/dynamicfooter/images/android.svg' />
-                            <Image src='https://www.deccanherald.com/sites/deccanherald.com/modules/dynamicfooter/images/ios.svg' />
+                           <a href="https://play.google.com/store/apps/details?id=com.tpml.dh"><Image src='https://www.deccanherald.com/sites/deccanherald.com/modules/dynamicfooter/images/android.svg' /></a> 
+                            <a href="https://apps.apple.com/us/app/deccan-herald-news/id1511179557"><Image src='https://www.deccanherald.com/sites/deccanherald.com/modules/dynamicfooter/images/ios.svg' /></a>
                         </Flex>
 
                         <Text className="listitem" fontWeight={'bold'}>SERVICES</Text>
