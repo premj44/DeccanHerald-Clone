@@ -1,14 +1,19 @@
-import { Image,  Box, Text, Flex, Grid, GridItem, UnorderedList, ListItem } from "@chakra-ui/react";
+import { Image, Box, Text, Flex, Grid, GridItem, UnorderedList, ListItem,Heading } from "@chakra-ui/react";
 import "../App.css"
 
 
-export default function Politics(){
+export default function Politics() {
 
-    return(
+    return (
         <>
 
+            <Flex mt='75px' gap='1130px' textDecoration='underline' >
+                <Box ml='32px' w='34px' h='8px' bg='#0d70b9'></Box>
+                <Box fontSize='14px' color='#0d70b9'>VIEW ALL</Box>
+            </Flex>
+            <Heading ml={'30px'}  size='md' textAlign='left'>POLITICS</Heading>
 
-<Box bg='#eff4f4' p='35px' cursor={"pointer"} textAlign='left'>
+            <Box bg='#eff4f4' p='35px' cursor={"pointer"} textAlign='left'>
                 <Grid templateColumns='repeat(3, 1fr)' gap={6}>
                     <GridItem w='400px' bg='white' width='100%' h='100%'  >
                         <Image w='100%' h='74%'
@@ -91,7 +96,7 @@ export default function Politics(){
                                 <Image
                                     src='https://www.deccanherald.com/sites/dh/files/styles/snippetlist/public/articleimages/2022/08/26/pti7202019000124a-1-1139315-1661443603-1139483-1661497897-1139580-1661515026.jpg?itok=Ty0eDqtR' />
                                 <Text className="listitem" fontWeight={"semibold"}> RJD to sue media that linked Tejashwi to Gurugram mall
-RJD to sue media that linked Tejashwi to Gurugram...
+                                    RJD to sue media that linked Tejashwi to Gurugram...
                                 </Text>
                             </Flex>
 
@@ -99,7 +104,7 @@ RJD to sue media that linked Tejashwi to Gurugram...
                                 <Image
                                     src='https://www.deccanherald.com/sites/dh/files/styles/snippetlist/public/articleimages/2022/08/26/soren-1139575-1661534112.jpg?itok=sL2tanUx' />
                                 <Text className="listitem" fontWeight={"semibold"}>Explained: What is happening in Jharkhand?
-Explained: What is happening in Jharkhand?
+                                    Explained: What is happening in Jharkhand?
                                 </Text>
                             </Flex>
                         </Box>

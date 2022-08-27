@@ -27,7 +27,7 @@ export default function Navbar() {
     const btnRef = React.useRef()
 
     return (
-        <Box>
+        <Box >
             <Box ml={"90px"}>
                 <Image boxSize='130px' src='https://www.deccanherald.com/sites/deccanherald.com/themes/deccanherald/images/logo/d-logo-new.svg'
                     alt='Dan Abramov' />
@@ -352,10 +352,10 @@ export default function Navbar() {
                 </Box>
                 <Box>
                     <Menu >
-                        <MenuButton as={Text} rightIcon={<ChevronDownIcon />}>National</MenuButton>
+                        <Link to="/national" ><MenuButton as={Text} rightIcon={<ChevronDownIcon />}>National</MenuButton></Link>
 
                         <MenuList bg='#0087a8'>
-                            <Link to="/national" > <MenuItem>Politics</MenuItem></Link>
+                            <MenuItem>Politics</MenuItem>
                             <MenuItem>Coronavirus</MenuItem>
                             <MenuItem>North and Central</MenuItem>
                             <MenuItem>East and Northeast</MenuItem>
@@ -444,7 +444,7 @@ export default function Navbar() {
                 </Box>
                 <Box>
                     <Menu >
-                        <MenuButton as={Text} rightIcon={<ChevronDownIcon />}>Specials</MenuButton>
+                        <Link to='/specials'><MenuButton as={Text} rightIcon={<ChevronDownIcon />}>Specials</MenuButton></Link>
 
                         <MenuList bg='#0087a8'>
                             <MenuItem>Insight</MenuItem>
