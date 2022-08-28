@@ -7,7 +7,7 @@ export default function YouMayLike(){
     const [news, setNews] = useState([]);
 
     useEffect(() => {
-        axios.get("https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=3da128da75bb4e819bb876090635ca8f&pageSize=12")
+        axios.get("https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=3da128da75bb4e819bb876090635ca8f&pageSize=12")
             .then((res) => {
                 console.log(res.data)
                 setNews(res.data.articles)

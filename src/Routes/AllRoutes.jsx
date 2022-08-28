@@ -4,6 +4,8 @@ import Navbar from "../Components/Navbar"
 import Home from "./Home"
 import Specials from "./Specials"
 import SingleSpecials from "./SingleSpecials"
+import Register from "./SignupPage"
+import Registered from "./Registered"
 
 export default function AllRoutes(){
 
@@ -14,7 +16,8 @@ export default function AllRoutes(){
         <Route path="/national" element={<National/>} />
         <Route path="/specials" element={<Specials/>} />
         <Route path="/specials/:id" element={<SingleSpecials/>} />
-         {/* <Route path="/" element={<h1>home</h1>}/> */}
+        <Route path="/signup" element={<Register/>} />
+        <Route path="/registered" element={<Registered/>} />
         </Routes>
         </div>
     )

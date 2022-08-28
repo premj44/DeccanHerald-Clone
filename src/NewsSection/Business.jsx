@@ -1,4 +1,4 @@
-import { Box, HStack, Text, Image, Flex, Heading } from "@chakra-ui/react";
+import { Box, HStack, Text, Image, Flex, Heading,SimpleGrid } from "@chakra-ui/react";
 import "../App.css"
 
 export default function Business() {
@@ -23,8 +23,8 @@ export default function Business() {
             <Heading size='md' >BUSINESS</Heading>
             <Heading size='md' >OPINION</Heading>
             </Flex>
-
             <HStack spacing='24px' p='25px' >
+            
                 <Box textAlign='left' bg='#eff4f4' h='250px'>
                     <Image w='600px' h='180px' 
                         src='https://www.deccanherald.com/sites/dh/files/styles/largevertical/public/articleimages/2022/08/26/elon-musk-reuters-1139431-1661461617.jpg?itok=aAVMehlB' />
@@ -74,7 +74,9 @@ export default function Business() {
                     </Box>
 
                 </Box>
+               
             </HStack>
+            
         </>
     )
 }

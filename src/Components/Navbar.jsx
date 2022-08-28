@@ -29,8 +29,8 @@ export default function Navbar() {
     return (
         <Box >
             <Box ml={"90px"}>
-                <Image boxSize='130px' src='https://www.deccanherald.com/sites/deccanherald.com/themes/deccanherald/images/logo/d-logo-new.svg'
-                    alt='Dan Abramov' />
+                <Link to='/'><Image boxSize='130px' src='https://www.deccanherald.com/sites/deccanherald.com/themes/deccanherald/images/logo/d-logo-new.svg'
+                    alt='logo' /></Link>
             </Box>
 
             <Box display={"flex"}>
@@ -454,8 +454,8 @@ export default function Navbar() {
                     </Menu>
                 </Box>
                 <Box cursor={"pointer"} fontWeight='10px' textAlign='left' w='110px' lineHeight='15px' height='33px' bg='#f8c242'>
-                    <Text fontSize='12px' ml='10px' fontWeight='bold' color="red">New</Text>
-                    <Text fontSize='12px' ml='10px' fontWeight='bold' color="black">NewsLetters</Text>
+                   <Link to='/signup'><Text fontSize='12px' ml='10px' fontWeight='bold' color="red">New</Text></Link>
+                   <Link to='/signup'><Text fontSize='12px' ml='10px' fontWeight='bold' color="black">NewsLetters</Text></Link>
                 </Box>
                 <Box >
                     <Popover placement='bottom-start'>

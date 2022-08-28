@@ -8,7 +8,7 @@ export default function TopHeadlines() {
         <>
 
             <Box bg='#eff4f4' p='35px' cursor={"pointer"} textAlign='left'>
-                <Grid templateColumns='repeat(3, 1fr)' gap={6}>
+                <Grid templateColumns={{sm:'repeat(1, 1fr)',md:'repeat(2, 1fr)',lg:'repeat(3, 1fr)'}} gap={6}>
                     <GridItem w='400px' bg='white' width='100%' h='100%'  >
                         <Image w='100%' h='74%'
                             src='https://www.deccanherald.com/sites/dh/files/styles/largevertical/public/articleimages/2022/08/24/virat-afp-1138940-1661351843.jpg?itok=tOUIyJPH' />

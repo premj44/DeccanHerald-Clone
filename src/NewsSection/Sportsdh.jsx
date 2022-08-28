@@ -1,4 +1,4 @@
-import { Box, Flex, GridItem, HStack, ListItem, UnorderedList, Text, Image, Heading } from "@chakra-ui/react";
+import { Box, Flex, GridItem, HStack, ListItem, UnorderedList, Text, Image, Heading, SimpleGrid } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import "../App.css"
 
@@ -24,7 +24,8 @@ export default function Sportsdh() {
                 <Heading size='md' >DH PICKS</Heading>
             </Flex>
 
-            <HStack spacing='24px' p='25px' >
+            <HStack  spacing='24px' p='25px'>
+                <SimpleGrid columns={[1,2,2,3]}>
 
                 <Box textAlign='left' bg='#eff4f4' p='30px' w='450px'>
 
@@ -75,6 +76,7 @@ export default function Sportsdh() {
                         <ListItem className="listitem" mt='10px'>India must rise out of the potholes</ListItem>
                     </UnorderedList>
                 </GridItem >
+                </SimpleGrid> 
             </HStack>
         </>
     )
